@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fff;
+}
+body {
+	min-height: 100vh;
+	background: rgb(15 23 42);
+}
+
+.container {
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.btn {
+	display: block;
+	width: min-content;
+	padding: 3px 10px;
+	border: none;
+	background-color: #10b981;
+	font-weight: bold;
+	font-size: 30px;
+	&:hover {
+		background-color: #A2b981;
+	}
+}
