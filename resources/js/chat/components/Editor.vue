@@ -1,12 +1,11 @@
 <template>
-	<div class="flex flex-col gap-4">
-		Editor
+	<div class="flex gap-4 items-center">
+		<Textarea />
+		<Send @click="send()" />
 	</div>
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style scoped>
 

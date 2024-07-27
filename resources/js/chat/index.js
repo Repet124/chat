@@ -6,6 +6,8 @@ import Header from '@/chat/components/Header.vue'
 import Chat from '@/chat/components/Chat.vue'
 import Editor from '@/chat/components/Editor.vue'
 import Message from '@/chat/components/Message.vue'
+import Textarea from '@/chat/components/Textarea.vue'
+import Send from '@/chat/components/Send.vue'
 
 var app = createApp(App);
 
@@ -14,6 +16,8 @@ componentsRegistration(app, {
 	Chat,
 	Editor,
 	Message,
+	Textarea,
+	Send,
 })
 
 app.mount('#app');
