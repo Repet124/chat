@@ -5,6 +5,7 @@ import App from './components/App.vue';
 import Header from '@/chat/components/Header.vue'
 import Chat from '@/chat/components/Chat.vue'
 import Editor from '@/chat/components/Editor.vue'
+import Message from '@/chat/components/Message.vue'
 
 var app = createApp(App);
 
@@ -12,6 +13,7 @@ componentsRegistration(app, {
 	Header,
 	Chat,
 	Editor,
+	Message,
 })
 
 app.mount('#app');
