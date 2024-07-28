@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
 	{
 		User::factory(2)->create();
 		User::factory()->create([
-			'name' => 'test',
+			'username' => 'test',
+			'name' => 'Super User TEst',
 		]);
 
 		$users = User::all();
