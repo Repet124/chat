@@ -8,7 +8,8 @@
 </head>
 <body class="bg-slate-900 text-white">
 	<h1 class="text-3xl py-6 text-center">Login</h1>
-	<div
+	<form
+		id="formJS"
 		class="container flex flex-col gap-4 items-center"
 	>
 		<p id="err" class="hidden py-4 px-2 text-lg font-bold bg-red-400">Всё плохо</p>

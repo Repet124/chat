@@ -1,41 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-	return redirect()->route('login');
-});
-
-Route::get('/login', function () {
-	if (auth()->user()) {
-		return redirect('/chat');
-	}
-	return view('welcome');
-})->name('login');
-
-Route::post('/login', function (Request $request) {
-	$credentials = $request->validate([
-		'name' => ['required'],
-		'password' => ['required'],
-	]);
-
-	if (Auth::attempt($credentials)) {
-		$request->session()->regenerate();
-		return true;
-	}
-
-	return back()->withErrors([
-		'login' => 'Deny',
-	]);
-})->name('login');
-
-Route::get('/logout', function(Request $request) {
-	Auth::logout();
-	$request->session()->invalidate();
-	$request->session()->regenerateToken();
-});
+Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware('auth:sanctum')->group(function () {
 

@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="flex flex-col gap-4 overflow-scroll"
+		class="flex flex-col gap-4 overflow-y-scroll"
 		ref="chat"
 	>
 		<Loader v-if="!messages" class="self-center"/>
@@ -19,6 +19,7 @@
 	var myId = inject('userId');
 	var messages = ref(null);
 	var chat = ref(null);
+
 	var scrollBehavior = 'auto';
 
 	axios.get('/api/messages')
