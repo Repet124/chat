@@ -9,6 +9,7 @@ import Message from '@/chat/components/Message.vue'
 import Textarea from '@/chat/components/Textarea.vue'
 import Send from '@/chat/components/Send.vue'
 import Loader from '@/chat/components/Loader.vue'
+import Modal from '@/chat/components/Modal.vue'
 
 var app = createApp(App, {
 	userId: document.getElementById('app').dataset.user
@@ -22,6 +23,7 @@ componentsRegistration(app, {
 	Textarea,
 	Send,
 	Loader,
+	Modal,
 })
 
 app.mount('#app');
