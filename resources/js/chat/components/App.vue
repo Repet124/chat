@@ -1,5 +1,5 @@
 <template>
-	<div class="container min-h-screen flex flex-col gap-4 text-white py-4">
+	<div class="container h-screen flex flex-col gap-4 text-white py-4">
 		<Header />
 		<Chat />
 		<Editor />
