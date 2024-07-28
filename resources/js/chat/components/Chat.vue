@@ -8,6 +8,7 @@
 
 <script setup>
 
+	import { reactive } from 'vue';
 	var messages = reactive([]);
 
 	Echo.channel('message')

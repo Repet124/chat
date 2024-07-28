@@ -8,6 +8,8 @@
 
 <script setup>
 
+	import { provide } from 'vue';
+
 	var currentUser = {
 		id: 3,
 		name: 'test'
