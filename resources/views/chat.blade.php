@@ -7,6 +7,6 @@
 	@vite(['resources/css/app.css', 'resources/js/chat/index.js'])
 </head>
 <body class="bg-slate-900 ">
-	<div id="app"></div>
+	<div id="app" data-user="{{ auth()->user()->id }}"></div>
 </body>
 </html>

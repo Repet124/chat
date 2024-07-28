@@ -21,8 +21,8 @@ class Message extends Model
 		return $this->belongsTo(User::class);
 	}
 
-	public function broadcastOn(string $event): Channel {
-		return new Channel('message');
+	public function broadcastOn(string $event): array {
+		return [new Channel('message')];
 	}
 
 }

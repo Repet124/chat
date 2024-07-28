@@ -1,13 +1,13 @@
 <?php
 
 use App\Models\Message;
+use App\Http\Controllers\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/messages', function (Request $request) {
+Route::middleware('auth:sanctum')->group(function() {
 
-	auth()->user()->messages()->create([
-		'text' => $request->string('text')
-	]);
+	Route::apiResource('messages', MessageController::class)
+		->only(['index', 'store']);
 
-})->middleware('auth:sanctum');
+});

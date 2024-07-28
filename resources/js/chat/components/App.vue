@@ -10,10 +10,7 @@
 
 	import { provide } from 'vue';
 
-	var currentUser = {
-		id: 3,
-		name: 'test'
-	}
-	provide(currentUser);
+	var { userId } = defineProps(['userId']);
+	provide('userId', Number(userId));
 
 </script>

@@ -8,8 +8,11 @@ import Editor from '@/chat/components/Editor.vue'
 import Message from '@/chat/components/Message.vue'
 import Textarea from '@/chat/components/Textarea.vue'
 import Send from '@/chat/components/Send.vue'
+import Loader from '@/chat/components/Loader.vue'
 
-var app = createApp(App);
+var app = createApp(App, {
+	userId: document.getElementById('app').dataset.user
+});
 
 componentsRegistration(app, {
 	Header,
@@ -18,6 +21,7 @@ componentsRegistration(app, {
 	Message,
 	Textarea,
 	Send,
+	Loader,
 })
 
 app.mount('#app');
