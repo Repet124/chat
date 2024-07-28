@@ -7,4 +7,11 @@
 </template>
 
 <script setup>
+
+	var currentUser = {
+		id: 3,
+		name: 'test'
+	}
+	provide(currentUser);
+
 </script>

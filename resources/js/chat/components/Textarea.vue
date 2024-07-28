@@ -2,26 +2,24 @@
 	<textarea
 		class="flex-grow py-2 px-4 bg-transparent border border-1 border-slate-400 rounded-3xl text-base resize-none outline-none"
 		:rows="rows"
-		v-model="message"
+		v-model="model"
 		ref="tarea"
-	>{{ message }}</textarea>
-	{{qwe()}}
+	>{{ model }}</textarea>
 </template>
 
 <script setup>
 	import { ref, computed } from 'vue';
 
+	var model = defineModel();
+
 	var maxRowsCount = 6;
-	var message = ref('');
+
 	var rows = computed(() => {
-		var rowsCount = message.value.match(/\n/g)?.length+1 || 1;
+		var rowsCount = model.value.match(/\n/g)?.length+1 || 1;
 		return rowsCount <= maxRowsCount
 			? rowsCount
 			: maxRowsCount;
-	})
-	function qwe() {
-		console.log(rows.value)
-	}
+	});
 </script>
 
 <style scoped>
