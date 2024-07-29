@@ -6,7 +6,7 @@
 	<title>Document</title>
 	@vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/login.js'])
 </head>
-<body class="bg-slate-900 text-white">
+<body class="bg-slate-900 text-white h-screen">
 	<h1 class="text-3xl py-6 text-center">Ты у нас?</h1>
 	<form
 		id="formJS"
