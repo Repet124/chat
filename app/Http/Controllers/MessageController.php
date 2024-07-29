@@ -20,6 +20,9 @@ class MessageController extends Controller
 	 * Store a newly created resource in storage.
 	 */
 	public function store(Request $request) {
+		$request->validate([
+			'text' => 'min:1|max:255'
+		]);
 		auth()->user()->messages()->create([
 			'text' => $request->string('text')
 		]);
