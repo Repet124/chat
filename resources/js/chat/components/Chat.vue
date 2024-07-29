@@ -3,12 +3,8 @@
 		class="flex flex-col gap-4 overflow-y-scroll"
 		ref="chat"
 	>
-		<Loader v-if="!messages" class="self-center"/>
-		<Message
-			v-else
-			v-for="message in messages"
-			:my="myId === message.user_id"
-		>{{ message.text }}</Message>
+		<Loader v-if="!messages" class="self-center" />
+		<Message v-else v-for="message in messages" v-bind="message" />
 	</div>
 </template>
 
@@ -24,11 +20,12 @@
 
 	axios.get('/api/messages')
 		.then(response => {
-			messages.value = response.data;
-			Echo.channel('message').listen('.MessageCreated', e => {
-				scrollBehavior = 'smooth';
-				messages.value.push(e.model)
-			})
+			messages.value = response.data.data;
+			Echo.channel('message')
+				.listen('.MessageCreated', e => {
+					scrollBehavior = 'smooth';
+					messages.value.push(e)
+				})
 		})
 
 	onUpdated(() => {

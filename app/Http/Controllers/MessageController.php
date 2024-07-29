@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Message;
+use App\Http\Resources\MessageResource;
 
 class MessageController extends Controller
 {
@@ -11,7 +13,7 @@ class MessageController extends Controller
 	 * Display a listing of the resource.
 	 */
 	public function index() {
-		return Message::all();
+		return MessageResource::collection(Message::all());
 	}
 
 	/**
