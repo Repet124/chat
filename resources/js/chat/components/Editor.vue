@@ -3,7 +3,10 @@
 		<Textarea
 			v-model="message"
 		/>
-		<Send @click="send()" />
+		<Send
+			:disabled="!message"
+			@click="message && send()"
+		/>
 	</div>
 </template>
 
@@ -14,9 +17,7 @@
 	var message = ref('');
 
 	function send() {
-		axios.post('/api/messages', {
-			text: message.value
-		})
+		axios.post('/api/messages', {text: message.value})
 			.then(() => message.value = '')
 	}
 </script>

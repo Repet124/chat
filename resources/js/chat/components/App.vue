@@ -10,7 +10,7 @@
 
 <script setup>
 
-	import { ref, provide } from 'vue';
+	import { ref, provide, onMounted } from 'vue';
 	import Modal from '@/chat/components/Modal.vue';
 
 	var { userId } = defineProps(['userId']);
