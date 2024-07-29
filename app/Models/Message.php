@@ -28,8 +28,8 @@ class Message extends Model
 		return [new Channel('message')];
 	}
 
-	public function broadcastWith(string $event): JsonResource {
-		return new MessageResource($this);
+	public function broadcastWith(string $event): array {
+		return (new MessageResource($this))->resolve();
 	}
 
 }
