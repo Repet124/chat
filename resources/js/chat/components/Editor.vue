@@ -17,7 +17,7 @@
 	var user = inject('user');
 	var message = ref('');
 	var lastTyping = 0;
-	var timeoutBetweenTypingAlerts = 1000;
+	var timeoutBetweenTypingAlerts = 2000;
 
 	function send() {
 		axios.post('/api/messages', {text: message.value})
