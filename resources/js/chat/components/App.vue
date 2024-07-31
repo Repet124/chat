@@ -3,8 +3,8 @@
 		<Modal ref="modal"/>
 		<Header />
 		<Chat />
+		<WritingAlert />
 		<Editor />
-
 	</div>
 </template>
 
@@ -13,10 +13,10 @@
 	import { ref, provide, onMounted } from 'vue';
 	import Modal from '@/chat/components/Modal.vue';
 
-	var { userId } = defineProps(['userId']);
+	var { user } = defineProps(['user']);
 	var modal = ref(null);
 
-	provide('userId', Number(userId));
+	provide('user', user);
 	provide('modalWindow', modal);
 
 

@@ -12,7 +12,6 @@
 
 	import { ref, inject, watch, onUpdated } from 'vue';
 
-	var myId = inject('userId');
 	var messages = ref(null);
 	var chat = ref(null);
 

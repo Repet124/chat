@@ -10,9 +10,10 @@ import Textarea from '@/chat/components/Textarea.vue'
 import Send from '@/chat/components/Send.vue'
 import Loader from '@/chat/components/Loader.vue'
 import Modal from '@/chat/components/Modal.vue'
+import WritingAlert from '@/chat/components/WritingAlert.vue'
 
 var app = createApp(App, {
-	userId: document.getElementById('app').dataset.user
+	user: JSON.parse(document.getElementById('app').dataset.user)
 });
 
 componentsRegistration(app, {
@@ -24,6 +25,7 @@ componentsRegistration(app, {
 	Send,
 	Loader,
 	Modal,
+	WritingAlert,
 })
 
 app.mount('#app');

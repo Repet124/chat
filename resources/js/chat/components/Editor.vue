@@ -12,14 +12,25 @@
 
 <script setup>
 
-	import { ref } from 'vue';
+	import { ref, inject } from 'vue';
 
+	var user = inject('user');
 	var message = ref('');
+	var lastTyping = 0;
+	var timeoutBetweenTypingAlerts = 1000;
 
 	function send() {
 		axios.post('/api/messages', {text: message.value})
 			.then(() => message.value = '')
 	}
+
+	watch(message, (newVal) => {
+		var now = Date.now();
+		if (now - lastTyping < timeoutBetweenTypingAlerts) {return}
+
+		lastTyping = now;
+		Echo.channel('message').whisper('typing', {name: user.name});
+	});
 </script>
 
 <style scoped>
