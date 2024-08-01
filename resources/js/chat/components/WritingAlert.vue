@@ -3,15 +3,15 @@
 </template>
 
 <script setup>
-	import { ref, computed, watch } from 'vue';
+	import { reactive, computed, watch } from 'vue';
 
-	var typingUsers = ref(new Map());
+	var typingUsers = reactive(new Map());
 	var timeoutUpdating = 4000;
-	var intervalUpdatingId = 0;
+	var intervalUpdating = 0;
 	var maxUsersToPrint = 3;
 
 	var usersToPrint = computed(() => {
-		var list = Array.from(typingUsers.value.keys());
+		var list = Array.from(typingUsers.keys());
 		if (list.length === 1) {
 			return `${list[0]} печатает`;
 		}
@@ -23,20 +23,20 @@
 
 	Echo.private('chat')
 		.listenForWhisper('typing', (e) => {
-			typingUsers.value.set(e.name, Date.now());
+			typingUsers.set(e.name, Date.now());
 		});
 
 	function checkUserTyping() {
 		var now = Date.now();
-		typingUsers.value.forEach((lastAlert, name) => {
+		typingUsers.forEach((lastAlert, name) => {
 			if (now - lastAlert > timeoutUpdating) {
-				typingUsers.value.delete(name);
+				typingUsers.delete(name);
 			}
 		});
 	}
 
 	watch(typingUsers, (actualList) => {
-		if (!actualList.value.size) {
+		if (!actualList.size) {
 			clearInterval(intervalUpdating);
 		} else {
 			intervalUpdating = setInterval(checkUserTyping, timeoutUpdating);
