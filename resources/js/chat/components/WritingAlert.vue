@@ -1,5 +1,5 @@
 <template>
-	<p>{{}}</p>
+	<p v-if="typingUsers.size" class="text-slate-600">{{usersToPrint}}</p>
 </template>
 
 <script setup>
@@ -12,13 +12,16 @@
 
 	var usersToPrint = computed(() => {
 		var list = Array.from(typingUsers.value.keys());
-		if (list.length > maxUsersToPrint) {
-			return list.slice(0, maxUsersToPrint).join(', ') + ' и ещё ' + (list.length - maxUsersToPrint);
+		if (list.length === 1) {
+			return `${list[0]} печатает`;
 		}
-		return list.join(', ');
+		return (list.length > maxUsersToPrint
+					? list.slice(0, maxUsersToPrint).join(', ') + ' и ещё ' + (list.length - maxUsersToPrint)
+					:list.join(', ')
+				) + ' печатают';
 	});
 
-	Echo.channel('message')
+	Echo.private('chat')
 		.listenForWhisper('typing', (e) => {
 			typingUsers.value.set(e.name, Date.now());
 		});
@@ -33,7 +36,7 @@
 	}
 
 	watch(typingUsers, (actualList) => {
-		if (!actualList.value.size()) {
+		if (!actualList.value.size) {
 			clearInterval(intervalUpdating);
 		} else {
 			intervalUpdating = setInterval(checkUserTyping, timeoutUpdating);

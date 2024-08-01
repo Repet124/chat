@@ -12,7 +12,7 @@
 
 <script setup>
 
-	import { ref, inject } from 'vue';
+	import { ref, inject, watch } from 'vue';
 
 	var user = inject('user');
 	var message = ref('');
@@ -29,7 +29,7 @@
 		if (now - lastTyping < timeoutBetweenTypingAlerts) {return}
 
 		lastTyping = now;
-		Echo.channel('message').whisper('typing', {name: user.name});
+		Echo.private('chat').whisper('typing', {name: user.name});
 	});
 </script>
 
