@@ -26,9 +26,11 @@ class DatabaseSeeder extends Seeder
 			'username' => 'test',
 			'name' => 'Super User TEst',
 		]);
-		$admin->assignRole('super-admin');
 
 		$users = User::all();
+
+		$users->map(fn(User $user) => $user->assignRole('member'));
+		$admin->assignRole('super-admin');
 
 		for ($i=0; $i < 20; $i++) {
 			Message::factory()->for($users->random())->create();
