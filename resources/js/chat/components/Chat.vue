@@ -6,6 +6,9 @@
 		<Loader v-if="!messages" class="self-center" />
 		<Message v-else v-for="message in messages" v-bind="message" />
 	</div>
+
+	<WritingAlert />
+	<Editor />
 </template>
 
 <script setup>
