@@ -7,6 +7,6 @@
 	@vite(['resources/css/app.css', 'resources/js/chat/index.js'])
 </head>
 <body class="bg-slate-900 ">
-	<div id="app" data-user="{{ auth()->user()->toJson() }}"></div>
+	<div id="app" data-user="{{ auth()->user()->append('is_admin')->toJson() }}"></div>
 </body>
 </html>
