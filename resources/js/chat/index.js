@@ -12,6 +12,7 @@ import Loader from '@/chat/components/Loader.vue'
 import Modal from '@/chat/components/Modal.vue'
 import WritingAlert from '@/chat/components/WritingAlert.vue'
 import Dashboard from '@/chat/components/Dashboard.vue'
+import Btn from '@/chat/components/Btn.vue'
 
 var app = createApp(App, {
 	user: JSON.parse(document.getElementById('app').dataset.user)
@@ -28,6 +29,7 @@ componentsRegistration(app, {
 	Modal,
 	WritingAlert,
 	Dashboard,
+	Btn
 })
 
 app.mount('#app');

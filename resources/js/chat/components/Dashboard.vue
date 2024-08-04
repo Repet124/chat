@@ -14,8 +14,9 @@
 
 <script setup>
 
-	import { ref } from 'vue';
+	import { ref, inject } from 'vue';
 
+	var modal = inject('modalWindow');
 	var unferifiedUsers = ref(null);
 
 	function setUsers() {
@@ -27,17 +28,18 @@
 	}
 
 	function verfify(user) {
-		axios.put(`/api/users/${user.id}/verify`)
-			.then(setUsers);
+		modal.value.confirm(`Верифицировать пользователя ${user.name}?`, () => {
+			axios.put(`/api/users/${user.id}/verify`)
+				.then(setUsers);
+		});
 	}
 
 	function remove(user) {
-		axios.delete(`/api/users/${user.id}`);
+		modal.value.confirm(`Удалить пользователя ${user.name}?`, () => {
+			axios.delete(`/api/users/${user.id}`)
+				.then(setUsers);
+		});
 	}
 
 	setUsers();
 </script>
-
-<style scoped>
-
-</style>
