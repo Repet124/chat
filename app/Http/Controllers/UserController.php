@@ -13,7 +13,8 @@ class UserController extends Controller {
 			: User::all();
 	}
 
-	public function verify(User $user, Request $request) {
-		dd($user);
+	public function verify(User $user) {
+		$user->assignRole('member');
+		return true;
 	}
 }
