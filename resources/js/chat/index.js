@@ -14,6 +14,11 @@ import WritingAlert from '@/chat/components/WritingAlert.vue'
 import Dashboard from '@/chat/components/Dashboard.vue'
 import Btn from '@/chat/components/Btn.vue'
 
+// icons
+import DeleteIcon from '/resources/svg/delete.svg?component'
+import DashboardIcon from '/resources/svg/dashboard.svg?component'
+import LikeIcon from '/resources/svg/like.svg?component'
+
 var app = createApp(App, {
 	user: JSON.parse(document.getElementById('app').dataset.user)
 });
@@ -29,7 +34,12 @@ componentsRegistration(app, {
 	Modal,
 	WritingAlert,
 	Dashboard,
-	Btn
+	Btn,
+
+	// icons
+	DeleteIcon,
+	DashboardIcon,
+	LikeIcon,
 })
 
 app.mount('#app');

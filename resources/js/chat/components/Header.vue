@@ -5,7 +5,9 @@
 				:class="{hidden: !user.is_admin}"
 				class="text-3xl"
 				@click="$emit('toggleDashboard')"
-			>◰</button>
+			>
+				<DashboardIcon class="w-12 h-12 stroke-white" />
+			</button>
 			<h1 class="font-bold text-4xl">Chat!</h1>
 		</div>
 		<button
