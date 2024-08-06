@@ -19,6 +19,7 @@ Route::middleware([
 		->group(function() {
 			Route::get('/', 'index')->name('index');
 			Route::put('/{user}/verify', 'verify')->name('verify');
+			Route::delete('/{user}', 'destroy')->name('verify');
 		});
 
 

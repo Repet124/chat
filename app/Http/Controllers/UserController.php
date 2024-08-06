@@ -17,4 +17,9 @@ class UserController extends Controller {
 		$user->assignRole('member');
 		return true;
 	}
+
+	public function destroy(User $user) {
+		$user->delete();
+		return true;
+	}
 }

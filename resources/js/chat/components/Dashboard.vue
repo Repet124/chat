@@ -4,10 +4,8 @@
 		<ul v-else>
 			<li v-for="user in unferifiedUsers" class="flex gap-4 items-center">
 				{{ user.name }}
-				<button
-					class="py-1 px-3 font-bold flex items-center justify-center w-max text-lg bg-blue-400 border-none hover:bg-blue-300"
-					@click="verfify(user)"
-				>Верифицировать</button>
+				<Btn @click="verfify(user)">Верифицировать</Btn>
+				<Btn bg="bg-red-400 hover:bg-red-300" @click="remove(user)">Удалить</Btn>
 			</li>
 		</ul>
 </template>
