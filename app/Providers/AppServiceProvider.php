@@ -22,5 +22,9 @@ class AppServiceProvider extends ServiceProvider
 		Gate::before(function(User $user) {
 			return $user->hasRole('super-admin') ? true : null;
 		});
+
+		Gate::define('userIsVerified', function(User $user) {
+			return $user->hasRole('member');
+		});
 	}
 }

@@ -2,8 +2,8 @@
 		<h1 class="text-xl">Пользователи ожидающие верификации</h1>
 		<Loader v-if="!unferifiedUsers" class="self-center" />
 		<ul v-else>
-			<li v-for="user in unferifiedUsers" class="flex gap-4 items-center">
-				{{ user.name }} sdfasfs asdfasdf asdfasdfa asdfas
+			<li v-for="user in unferifiedUsers" :key="user.id" class="flex gap-4 items-center">
+				{{ user.name }}
 				<Btn @click="verfify(user)" class="py-0 !px-2">
 					<LikeIcon class="w-12 h-12 stroke-white" />
 				</Btn>

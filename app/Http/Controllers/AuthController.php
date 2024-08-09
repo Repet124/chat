@@ -6,6 +6,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class AuthController extends Controller {
 
@@ -47,5 +48,11 @@ class AuthController extends Controller {
 		$request->session()->invalidate();
 		$request->session()->regenerateToken();
 		return response('ok', 200);
+	}
+
+	public function showVerify() {
+		return Gate::allows('userIsVerified')
+			? redirect()->route('chat')
+			: view('verification');
 	}
 }
