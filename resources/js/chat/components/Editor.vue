@@ -29,7 +29,7 @@
 		if (now - lastTyping < timeoutBetweenTypingAlerts) {return}
 
 		lastTyping = now;
-		Echo.private('chat').whisper('typing', {name: user.name});
+		Echo.private('typing').whisper('typing', {name: user.name});
 	});
 </script>
 

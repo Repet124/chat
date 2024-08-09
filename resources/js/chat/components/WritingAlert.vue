@@ -26,7 +26,7 @@
 				) + ' печатают';
 	});
 
-	Echo.private('chat')
+	Echo.private('typing')
 		.listenForWhisper('typing', (e) => {
 			typingUsers.set(e.name, Date.now());
 		});

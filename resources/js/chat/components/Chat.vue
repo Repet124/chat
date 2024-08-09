@@ -23,7 +23,7 @@
 	axios.get('/api/messages')
 		.then(response => {
 			messages.value = response.data.data;
-			Echo.channel('message')
+			Echo.private('message')
 				.listen('.MessageCreated', e => {
 					scrollBehavior = 'smooth';
 					messages.value.push(e)
